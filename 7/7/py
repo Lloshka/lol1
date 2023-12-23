@@ -1,0 +1,68 @@
+import random
+
+A = int(input("Введите ширину карты: "))
+B = int(input("Введите длину карты: "))
+N = int(input("Введите количество ходов: "))
+
+directions = ["вверх", "вниз", "влево", "вправо"]
+
+map = [['о'] * A for _ in range(B)]
+x = int(input("Введите стартовую координату x: "))
+y = int(input("Введите стартовую координату y: "))
+
+explored_count = 0
+
+for i in range(N):
+    direction = random.choice(directions)
+
+    if direction == "вверх":
+        if y > 0:
+            y -= 1
+            explored_count += 1
+            map[y][x] = 'x'
+            print(f"Шаг {i+1}: Вверх, координаты ({x}, {y})")
+        else:
+            print("Робот достиг края карты!")
+            break
+            
+    elif direction == "вниз":
+        if y < B - 1:
+            y += 1
+            explored_count += 1
+            map[y][x] = 'x'
+            print(f"Шаг {i+1}: Вниз, координаты ({x}, {y})")
+        else:
+            print("Робот достиг края карты!")
+            break
+            
+    elif direction == "влево":
+        if x > 0:
+            x -= 1
+            explored_count += 1
+            map[y][x] = 'x'
+            print(f"Шаг {i+1}: Влево, координаты ({x}, {y})")
+        else:
+            print("Робот достиг края карты!")
+            break
+            
+    elif direction == "вправо":
+        if x < A - 1:
+            x += 1
+            explored_count += 1
+            map[y][x] = 'x'
+            print(f"Шаг {i+1}: Вправо, координаты ({x}, {y})")
+        else:
+            print("Робот достиг края карты!")
+            break
+
+if i == N - 1:
+    print("Миссия успешно завершена!")
+
+# Вывод навигационной карты
+print("Навигационная карта:")
+for row in map:
+    print(' '.join(row))
+
+# Вычисление процента исследованной области
+explored_percentage = (explored_count / (A * B)) * 100
+print(f"Процент исследованной области: {explored_percentage}%")
