@@ -1,0 +1,9 @@
+def find_names(words):
+    names = []
+    for word in words:
+        if word[0].isupper():
+            names.append(word)
+    return names
+words = input().split()
+name_list = find_names(words)
+print(name_list)
