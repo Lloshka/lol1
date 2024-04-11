@@ -20,13 +20,13 @@
     }
 
     input, select {
-      width: 100%;
+      width: 100;
       padding: 5px;
       margin-bottom: 5px;
     }
 
     button {
-      width: 100%;
+      width: 100;
       padding: 5px;
       background-color: #008CBA;
       color: #fff;
@@ -48,17 +48,16 @@
     <label for="email">Email:</label>
     <input type="email" id="email">
     <span class="error" id="email-error"></span>
+    <div>
+        <label for="phone-code">Номер телефона:</label>
+        <select id="phone-code">
+          <option value="+7">+7</option>
+          <option value="+380">+380</option>
+          <option value="+375">+375</option>
+        </select>
 
-    <label for="phone-code">Код телефона:</label>
-    <select id="phone-code">
-      <option value="+7">+7</option>
-      <option value="+380">+380</option>
-      <option value="+375">+375</option>
-    </select>
-
-    <label for="phone-number">Номер телефона:</label>
-    <input type="tel" id="phone-number" placeholder="Введите номер телефона">
-
+        <input type="tel" id="phone-number" placeholder="Введите номер телефона">
+    </div>
     <label for="country">Страна:</label>
     <select id="country">
       <option value="Россия">Россия</option>
